@@ -31,8 +31,13 @@ void vector_pop_back(Vector* vec) {
 	}
 }
 void vector_set(Vector* vec, size_t index, void* value) {
-	vec->data[index] = value;
+	if (index < vec->size) {
+		vec->data[index] = value;
+	}
 }
 void* vector_get(Vector* vec, size_t index) {
-	return vec->data[index];
+	if (index < vec->size) {
+		return vec->data[index];
+	}
+	return NULL;
 }
